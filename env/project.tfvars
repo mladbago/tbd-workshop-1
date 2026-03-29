@@ -1,5 +1,6 @@
 project_name        = "tbd-2026l-348197"
-iac_service_account = "tbd-2026l-348197/roles/owner/serviceAccount:tbd-2026l-348197-lab@tbd-2026l-348197.iam.gserviceaccount.com"
+iac_service_account = "tbd-2026l-348197-lab@tbd-2026l-348197.iam.gserviceaccount.com"
 github_org          = "mladbago"
 github_repo         = "tbd-workshop-1"
 github_branch       = "master"
+# tbd-2026l-348197/roles/owner/serviceAccount:tbd-2026l-348197-lab@tbd-2026l-348197.iam.gserviceaccount.com
