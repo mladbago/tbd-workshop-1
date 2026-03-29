@@ -1,0 +1,24 @@
+version: 0.1
+resource_usage:
+  module.gcr.google_artifact_registry_repository.registry:
+    storage_gb: 15
+
+  module.data-pipelines.google_storage_bucket.tbd-code-bucket:
+    storage_gb: 1
+    monthly_class_a_ops: 100
+    monthly_class_b_ops: 500
+
+  module.data-pipelines.google_storage_bucket.tbd-data-bucket:
+    storage_gb: 50
+    monthly_class_a_ops: 5000
+    monthly_class_b_ops: 20000
+
+  module.dataproc.google_storage_bucket.dataproc_staging:
+    storage_gb: 10
+    monthly_class_a_ops: 1000
+    monthly_class_b_ops: 5000
+
+  module.dataproc.google_storage_bucket.dataproc_temp:
+    storage_gb: 20
+    monthly_class_a_ops: 2000
+    monthly_class_b_ops: 10000
