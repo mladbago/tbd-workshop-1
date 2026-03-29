@@ -57,9 +57,14 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 
 1. Authors:
 
-   ***enter your group nr***
+   **Group: Z1**
 
-   ***link to forked repo***
+   **Members:**
+   * Blagoja Mladenov
+   * Katarzyna Wawer
+   * Agnieszka Jagier
+   
+   **Repo Link:** [https://github.com/mladbago/tbd-workshop-1.git](https://github.com/mladbago/tbd-workshop-1.git)
 
 2. Follow all steps in README.md.
 
