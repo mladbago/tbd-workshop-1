@@ -5,20 +5,20 @@ resource_usage:
 
   google_storage_bucket.tbd-code-bucket:
     storage_gb: 1
-    monthly_class_a_ops: 100
-    monthly_class_b_ops: 500
+    monthly_class_a_operations: 100
+    monthly_class_b_operations: 500
 
   google_storage_bucket.tbd-data-bucket:
     storage_gb: 50
-    monthly_class_a_ops: 5000
-    monthly_class_b_ops: 20000
+    monthly_class_a_operations: 5000
+    monthly_class_b_operations: 20000
 
   google_storage_bucket.dataproc_staging:
     storage_gb: 10
-    monthly_class_a_ops: 1000
-    monthly_class_b_ops: 5000
+    monthly_class_a_operations: 1000
+    monthly_class_b_operations: 5000
 
   google_storage_bucket.dataproc_temp:
     storage_gb: 20
-    monthly_class_a_ops: 2000
-    monthly_class_b_ops: 10000
+    monthly_class_a_operations: 2000
+    monthly_class_b_operations: 10000
