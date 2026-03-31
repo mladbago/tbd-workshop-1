@@ -97,6 +97,10 @@ resource "google_container_cluster" "airflow" {
   subnetwork = var.subnet
 
   deletion_protection = false
+
+  workload_identity_config {
+    workload_pool = "${var.project_name}.svc.id.goog"
+  }
 }
 
 resource "google_container_node_pool" "airflow_nodes" {
