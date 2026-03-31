@@ -4,7 +4,7 @@ resource "google_project_service" "dataproc" {
   service            = "dataproc.googleapis.com"
   disable_on_destroy = true
 }
-
+#
 resource "google_service_account" "dataproc_sa" {
   account_id   = "${var.project_name}-dataproc-sa"
   display_name = "Dataproc Service Account"
