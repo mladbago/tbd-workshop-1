@@ -24,3 +24,8 @@ variable "image_version" {
   type    = string
   default = "2.2.69-ubuntu22"
 }
+
+variable "preemptible_worker_instances" {
+  type    = number
+  default = 2
+}
