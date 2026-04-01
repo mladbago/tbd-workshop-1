@@ -75,17 +75,17 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 
     2. Create PR from this branch to **YOUR** master and merge it to make new release.
 
-    ***place the screenshot from GA after successful application of release***
+    ![success.png](doc/phase1/github_actions.png)
 
 
 5. Analyze terraform code. Play with terraform plan, terraform graph to investigate different modules.
 
-    ***describe one selected module and put the output of terraform graph for this module here***
+    ![terraform-graph.png](doc/phase1/terraform_graph.png)
 
 6. Reach YARN UI
 
    ***place the command you used for setting up the tunnel, the port and the screenshot of YARN UI here***
-
+   ![yarn.pnhg](doc/phase1/yarn_1.png)
    Hint: the Dataproc cluster has `internal_ip_only = true`, so you need to use an IAP tunnel.
    See: `gcloud compute ssh` with `-- -L <local_port>:localhost:<remote_port>` and `--tunnel-through-iap` flag.
    YARN ResourceManager UI runs on port **8088**.
@@ -102,7 +102,8 @@ create a sample usage profiles and add it to the Infracost task in CI/CD pipelin
 
    ***place the expected consumption you entered here***
 
-   ***place the screenshot from infracost output here***
+  ![infracost.png](doc/phase1/infracost_0.png)
+  ![infracost_1.png](doc/phase1/infracost_1.png)
 
 9. Find and correct the error in spark-job.py
 
@@ -122,11 +123,11 @@ create a sample usage profiles and add it to the Infracost task in CI/CD pipelin
 
     a) In the Airflow UI (http://AIRFLOW_EXTERNAL_IP:8080, login: admin/admin), find the `dataproc_job` DAG, unpause it and trigger it manually.
 
-    ***place a screenshot of the DAG in the Airflow UI***
+    ![airflow_dag.png](doc/phase1/airflow_ui_dag.png)
 
     b) The DAG will fail. Examine the task logs in the Airflow UI to find the root cause.
 
-    ***paste the relevant error message from the Airflow task log***
+    ![airflow_logs.png](doc/phase1/airflow_mistake.png)
 
     ***describe what the error is and how you found it***
 
@@ -143,7 +144,7 @@ create a sample usage profiles and add it to the Infracost task in CI/CD pipelin
     gsutil ls gs://PROJECT_NAME-data/data/shakespeare/
     ```
 
-    ***place a screenshot of the successful DAG run in Airflow UI***
+    !airflow_dag_success.png](doc/phase1/airflow_success.png)
 
 11. Create a BigQuery dataset and an external table using SQL
 
@@ -154,7 +155,11 @@ create a sample usage profiles and add it to the Infracost task in CI/CD pipelin
     bq mk --dataset --location=europe-west1 shakespeare
     ```
 
-    ***place the SQL code and query output here***
+    ![bigquery_dataset.png](doc/phase1/bigquery.png)
+    ![bigquery_dataset_2.png](doc/phase1/bigquery_output.png)
+
+    Then create an external table using the ORC files in GCS. You can do this via the BigQuery UI or CLI, e.g.:
+    ```bash
 
     ***why does ORC not require a table schema?***
 
