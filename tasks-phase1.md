@@ -62,7 +62,7 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
    **Members:**
    * Blagoja Mladenov
    * Katarzyna Wawer
-   * Agnieszka Jagier
+   * Agnieszka Jegier
    
    **Repo Link:** [https://github.com/mladbago/tbd-workshop-1.git](https://github.com/mladbago/tbd-workshop-1.git)
 
@@ -81,6 +81,8 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 5. Analyze terraform code. Play with terraform plan, terraform graph to investigate different modules.
 
     ![terraform-graph.png](doc/phase1/terraform_graph.png)
+
+Data Pipeline module is responsible for managing Google Cloud Storage buckets and their IAM permissions. 2 buckets are created: tbd-data-bucket – stores data and tbd-code-bucket – stores code. tbd-data-bucket-iam-edit is&nbsp;applied  to data bucket to give permissions to edit. tbd-code-bucket-iam-view is applied to code bucketto give permission to view. google_storage_bucket_object.job-code bucket uploads into code bucket.
 
 6. Reach YARN UI
 
@@ -129,7 +131,7 @@ create a sample usage profiles and add it to the Infracost task in CI/CD pipelin
 
     ![airflow_logs.png](doc/phase1/airflow_mistake.png)
 
-    ***describe what the error is and how you found it***
+    As shown on the logs above, error is 404 Not Found signalling a problem when trying to write into storage: bucket tbd-2026l-9010-data doesn’t exist. According to that, file modules/data-pipeline/resources/spark-job.py was modified as it specified this bucket in DATA_BUCKET variable.
 
     c) Fix the error in `modules/data-pipeline/resources/spark-job.py` and re-upload the file to GCS:
     ```bash
@@ -159,9 +161,10 @@ create a sample usage profiles and add it to the Infracost task in CI/CD pipelin
     ![bigquery_dataset_2.png](doc/phase1/bigquery_output.png)
 
     Then create an external table using the ORC files in GCS. You can do this via the BigQuery UI or CLI, e.g.:
-    ```bash
 
     ***why does ORC not require a table schema?***
+
+    ORC is self-describing format, which means that user doesn’t have to manually define table schema. Schema is defined in file footer, that includes metadata: column names, data types, structure. Compared to other formats (that do require table schema) schema travels with the data, ORC isn’t just a text file. This allows schema evolution – adding/replacing columns and easier data sharing as seperate schema file is unnecessary.
 
 12. Add support for preemptible/spot instances in a Dataproc cluster
 
@@ -189,3 +192,5 @@ Hint: use the existing `.github/workflows/destroy.yml` as a starting point.
 ***paste screenshot/log snippet confirming the auto-destroy ran***
 
 ***write one sentence why scheduling cleanup helps in this workshop***
+
+Scheduling cleanup is helpful to ensure that resources are used efficiently (infrastructure generates costs only when in use) and to reduce manual intervention.
