@@ -100,7 +100,7 @@ Data Pipeline module is responsible for managing Google Cloud Storage buckets an
     1. Description of the components of service accounts
     2. List of buckets for disposal
 
-    ***place your diagram here***
+    ![architecture.png](doc/phase1/architecture.png)
 
 8. Create a new PR and add costs by entering the expected consumption into Infracost
 For all the resources of type: `google_artifact_registry_repository`, `google_storage_bucket`
