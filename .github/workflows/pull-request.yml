@@ -77,7 +77,8 @@ jobs:
         output_format: cli,sarif
         output_file_path: console,results.sarif
         config_file: .checkov.yaml
-        skip_path: gha-creds-*json
+        skip_path: "**/gha-creds-*.json"
+#        skip_check: CKV_SECRET_9
 
     - name: Terraform Plan
       id: plan
