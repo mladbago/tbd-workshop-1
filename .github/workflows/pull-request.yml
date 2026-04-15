@@ -77,8 +77,7 @@ jobs:
         output_format: cli,sarif
         output_file_path: console,results.sarif
         config_file: .checkov.yaml
-        skip_path: "**/gha-creds-*.json"
-#        skip_check: CKV_SECRET_9
+        skip_path: gha-creds-*json
 
     - name: Terraform Plan
       id: plan
@@ -174,4 +173,3 @@ jobs:
                                    --github-token=${{secrets.GITHUB_TOKEN}} \
                                    --pull-request=${{github.event.pull_request.number}} \
                                    --behavior=update
-
