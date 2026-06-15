@@ -39,3 +39,4 @@ terraform.rc
 bootstrap/terraform.tfstate_*
 bin/
 .infracost/
+venv/
